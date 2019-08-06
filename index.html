@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <style> 
+        .windowModal {
+            position: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 99999;
+            opacity:0;
+            -webkit-transition: opacity 400ms ease-in;
+            -moz-transition: opacity 400ms ease-in;
+            transition: opacity 400ms ease-in;
+            pointer-events: none;
+        }
+        .windowModal:target {
+            opacity:1;
+            pointer-events: auto;
+        }
+        
+        .windowModal > div {
+            width: 400px;
+            position: relative;
+            margin: 10% auto;
+            padding: 5px 20px 13px 20px;
+            border-radius: 10px;
+            background: #fff;
+            background: -moz-linear-gradient(#fff, #999);
+            background: -webkit-linear-gradient(#fff, #999);
+            background: -o-linear-gradient(#fff, #999);
+        }
+        .close {
+            background: #606061;
+            color: #FFFFFF;
+            line-height: 25px;
+            position: absolute;
+            right: -12px;
+            text-align: center;
+            top: -10px;
+            width: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            -webkit-border-radius: 12px;
+            -moz-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 1px 1px 3px #000;
+            -webkit-box-shadow: 1px 1px 3px #000;
+            box-shadow: 1px 1px 3px #000;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        .close:hover { background: #00d9ff; }
+        </style>
+        <script src="main.js"></script>
+        </head>
+        <body>
+        
+        <form name="sample" action="#" id="form1" onsubmit="return false">
+            <label for="value1">Value1</label>
+            <input type="text" name="value1" id="value1">
+            <label for="value2">Value2</label>
+            <input type="text" name="value2" id="value2">
+            <label for="value3">Value3</label>
+            <input type="text" name="value3" id="value3">
+            <button><a href="#divModal" onclick="showDialog()">Submit</a></button>
+        </form>
+        
+        
+        <div id="divModal" class="windowModal">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>Modal Dialog</h2>
+                <p>Value1 : <span id="v1"></span></p>
+                <p>Value2 : <span id="v2"></span></p>
+                <p>Value3 : <span id="v3"></span></p>
+            </div>
+        </div>
+        </body>
